@@ -37,7 +37,7 @@ public class ImdbTests {
 
     @Test
     public void testSite() throws Exception {
-        driver.get("http://localhost:8080/Viswa.html");
+        driver.get("http://localhost:8080/index.html");
         assertEquals("Professonial Webpage", driver.getTitle());
     }
 
