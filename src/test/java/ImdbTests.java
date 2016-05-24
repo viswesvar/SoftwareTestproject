@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 
 /**
- * Created by Shree on 05-May-16.
+ *
  */
 public class ImdbTests {
     private WebDriver driver;
@@ -19,7 +19,7 @@ public class ImdbTests {
 
     @Before
     public void setUp() throws Exception {
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Shree\\Downloads\\Compressed\\chromedriver_win32\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\viswa\\Downloads\\Compressed\\chromedriver_win32\\chromedriver.exe");
         driver = new HtmlUnitDriver();
         baseUrl = "http://www.imdb.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -38,7 +38,7 @@ public class ImdbTests {
     @Test
     public void testSite() throws Exception {
         driver.get("http://localhost:8080/Viswa.html");
-        assertEquals("Professonial Webpage", driver.getTitle());
+        assertEquals("Professonial Webpage", driver.getTitl e());
     }
 
     @After
