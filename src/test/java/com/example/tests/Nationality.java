@@ -48,7 +48,7 @@ public class Nationality {
       return false;
     }
   }
-
+//
   private boolean isAlertPresent() {
     try {
       driver.switchTo().alert();
