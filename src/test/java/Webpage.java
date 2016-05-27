@@ -2,7 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,16 +20,16 @@ public class Webpage {
 
     @Before
     public void setUp() throws Exception {
-        driver = new FirefoxDriver();
+        driver = new HtmlUnitDriver();
         baseUrl = "http://develop-viswesvarsekar.rhcloud.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
     public void testWebpage() throws Exception {
-        driver.get("http://localhost:8080/index.html");
+        driver.get(baseUrl);
         try {
-            assertEquals("Professonial_Webpage", driver.getTitle());
+            assertEquals("Professonial-Webpage", driver.getTitle());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
