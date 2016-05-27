@@ -27,8 +27,10 @@ public class Member {
   @Test
   public void testMemberViswesvar() throws Exception {
     driver.get(baseUrl);
-    assertEquals("Viswesvar Sekar", driver.findElement(By.linkText("Viswesvar Sekar")).getText());
+    assertEquals("Viswesvar Sekar 2152249", driver.findElement(By.linkText("Viswesvar Sekar 2152249")).getText());
   }
+
+
 
   @After
   public void tearDown() throws Exception {
