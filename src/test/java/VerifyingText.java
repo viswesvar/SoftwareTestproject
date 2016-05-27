@@ -7,13 +7,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.fail;
 
-/**
- * Created by Shree on 25-May-16.
- */
-public class Webpage {
+public class VerifyingText {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -27,13 +23,9 @@ public class Webpage {
     }
 
     @Test
-    public void testWebpage() throws Exception {
-        driver.get("http://localhost:8080/index.html");
-        try {
-            assertEquals("Professonial_Webpage", driver.getTitle());
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+    public void testVerifytxt() throws Exception {
+        driver.get(baseUrl);
+        driver.findElement(By.linkText("About")).click();
     }
 
     @After
