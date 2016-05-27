@@ -24,7 +24,7 @@ public class VerifyingText {
 
     @Test
     public void testVerifytxt() throws Exception {
-        driver.get("http://develop-viswesvarsekar.rhcloud.com/");
+        driver.get(baseUrl);
         driver.findElement(By.linkText("About")).click();
     }
 
