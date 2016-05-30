@@ -25,7 +25,7 @@ public class Testmylinkinpageviswa {
 
   @Test
   public void testMylinkinpageviswa() throws Exception {
-    driver.get(baseUrl + "/index.html");
+    driver.get(baseUrl);
     driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
     driver.findElement(By.linkText("To know More about get into Social Profile")).click();
     assertEquals("Viswesvar Sekar", driver.findElement(By.id("name")).getText());
