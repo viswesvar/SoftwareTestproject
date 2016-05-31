@@ -30,7 +30,7 @@ public class Webpage {
     public void testWebpage() throws Exception {
         driver.get(baseUrl);
         try {
-            assertEquals("Professonial_Webpage", driver.getTitle());
+            assertEquals("Professonial Webpage", driver.getTitle());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
