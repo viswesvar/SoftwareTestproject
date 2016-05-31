@@ -1,16 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-
+import org.junit.*;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class Testmylinkinpageviswa {
+public class GuruNew1 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,12 +24,19 @@ public class Testmylinkinpageviswa {
   }
 
   @Test
-  public void testMylinkinpageviswa() throws Exception {
+  public void testGuruNew1() throws Exception {
     driver.get(baseUrl + "/index.html");
-    driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
-    driver.findElement(By.linkText("To know More about get into Social Profile")).click();
-    assertEquals("Viswesvar Sekar", driver.findElement(By.id("name")).getText());
-    assertTrue(isElementPresent(By.xpath("//img[@alt='Viswesvar Sekar']")));
+    try {
+      assertEquals("Professonial Webpage", driver.getTitle());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    assertEquals("Guru Kiran Manjunath 2150172", driver.findElement(By.cssSelector("p")).getText());
+    try {
+      assertTrue(isElementPresent(By.cssSelector("p")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
   }
 
   @After
