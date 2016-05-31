@@ -2,7 +2,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -30,7 +29,7 @@ public class guru {
     public void testSdff() throws Exception {
         driver.get(baseUrl);
         try {
-            assertEquals("New Team Members:", driver.findElement(By.xpath("//div[@id='main']/center[4]/h1")).getText());
+            assertEquals("Team Members:", driver.findElement(By.xpath("//div[@id='main']/center[4]/h1")).getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

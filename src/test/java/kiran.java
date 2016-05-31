@@ -2,7 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +20,7 @@ public class kiran {
 
     @Before
     public void setUp() throws Exception {
-        driver = new FirefoxDriver();
+        driver = new HtmlUnitDriver();
         baseUrl = "http://develop-viswesvarsekar.rhcloud.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
