@@ -23,7 +23,7 @@ public class testforguruprofile {
     baseUrl = "http://develop-viswesvarsekar.rhcloud.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
-
+//
   @Test
   public void testForguruprofile() throws Exception {
     driver.get(baseUrl + "/index.html");
