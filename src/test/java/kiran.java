@@ -2,7 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,15 +20,15 @@ public class kiran {
 
     @Before
     public void setUp() throws Exception {
-        driver = new FirefoxDriver();
-        baseUrl = "http://develop-viswesvarsekar.rhcloud.com/";
+        driver = new HtmlUnitDriver();
+        baseUrl = "http://develop-viswesvarsekar.rhcloud.com/GuruProfile.html";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
     public void testGr() throws Exception {
         driver.get(baseUrl);
-        assertEquals("Training : Training in SAP \" Basis \" Module from Radiant Technologies , Bangalore", driver.findElement(By.xpath("//div[@id='content']/p[9]")).getText());
+        assertEquals("Training : Training in SAP \" Basis \" Module from Radiant Technologies", driver.findElement(By.xpath("//div[@id='content']/p[9]")).getText());
     }
 
     @After
@@ -73,4 +73,3 @@ public class kiran {
         }
     }
 }
-
