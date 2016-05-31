@@ -8,10 +8,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-public class gurukiran2 {
+public class gurukiran4 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,14 +24,11 @@ public class gurukiran2 {
   }
 
   @Test
-  public void testGurukiran2() throws Exception {
-    driver.get(baseUrl + "/GuruProfile.html");
-    try {
-      assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
-    assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
+  public void testGurukiran4() throws Exception {
+    driver.get(baseUrl + "/ViswaProfile.html");
+    assertEquals("Education : Bachelor's in Information Technology", driver.findElement(By.xpath("//div[@id='content']/p[6]")).getText());
+    assertTrue(isElementPresent(By.id("content")));
+    assertEquals("Viswesvar Sekar", driver.getTitle());
   }
 
   @After

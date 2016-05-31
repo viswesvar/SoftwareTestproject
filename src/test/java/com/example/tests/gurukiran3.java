@@ -1,17 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-public class gurukiran2 {
+public class gurukiran3 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,14 +24,10 @@ public class gurukiran2 {
   }
 
   @Test
-  public void testGurukiran2() throws Exception {
-    driver.get(baseUrl + "/GuruProfile.html");
-    try {
-      assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
-    assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
+  public void testGurukiran3() throws Exception {
+    driver.get(baseUrl + "/ViswaProfile.html");
+    assertEquals("Nationality : Indian", driver.findElement(By.xpath("//div[@id='content']/p[2]")).getText());
+    assertTrue(isElementPresent(By.xpath("//div[@id='content']/p[3]")));
   }
 
   @After
