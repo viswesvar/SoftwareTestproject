@@ -29,7 +29,7 @@ public class Testmylinkinpageviswa {
     driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
     driver.findElement(By.linkText("To know More about get into Social Profile")).click();
     assertEquals(true, driver.getTitle().contains("Viswesvar Sekar"));//findElement(By.id("name")).getText());
-    assertTrue(isElementPresent(By.xpath("//img[@alt='Viswesvar Sekar']")));
+    //assertTrue(isElementPresent(By.xpath("//img[@alt='Viswesvar Sekar']")));
   }
 
   @After
