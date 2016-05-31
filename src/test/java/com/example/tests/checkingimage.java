@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class shreeimageverifying {
+public class checkingimage {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,20 +24,15 @@ public class shreeimageverifying {
   }
 
   @Test
-  public void testShreeimageverifying() throws Exception {
+  public void testCheckingimage() throws Exception {
     driver.get(baseUrl + "/index.html");
-    driver.findElement(By.xpath("//center[3]/a/p")).click();
-    assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
-    try {
-      assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
+    driver.findElement(By.xpath("//center[4]/a/p")).click();
     try {
       assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
   }
 
   @After
