@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class shreeAboutButton {
+public class gurukiran1 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,15 +24,10 @@ public class shreeAboutButton {
   }
 
   @Test
-  public void testShreeAboutButton() throws Exception {
-    driver.get(baseUrl + "/");
-    driver.findElement(By.linkText("About")).click();
-    assertEquals("This page was created on 20th May 2016 for the purpose of Software quality", driver.findElement(By.cssSelector("p")).getText());
-    try {
-      assertEquals("This page was created on 20th May 2016 for the purpose of Software quality", driver.findElement(By.cssSelector("p")).getText());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
+  public void testGuru1() throws Exception {
+    driver.get(baseUrl + "/GuruProfile.html");
+    assertTrue(isElementPresent(By.xpath("//div[@id='content']/p[2]")));
+    assertTrue(isElementPresent(By.id("content")));
   }
 
   @After

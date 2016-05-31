@@ -3,6 +3,8 @@ package com.example.tests;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
+
+import static javafx.scene.input.KeyCode.F;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
@@ -10,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class shreeimageverifying {
+public class gurukiran2 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,20 +26,14 @@ public class shreeimageverifying {
   }
 
   @Test
-  public void testShreeimageverifying() throws Exception {
-    driver.get(baseUrl + "/index.html");
-    driver.findElement(By.xpath("//center[3]/a/p")).click();
-    assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
-    try {
-      assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
+  public void testGurukiran2() throws Exception {
+    driver.get(baseUrl + "/GuruProfile.html");
     try {
       assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
   }
 
   @After
