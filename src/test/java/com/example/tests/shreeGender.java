@@ -1,17 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-public class Testofmem {
+public class shreeGender {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,9 +24,15 @@ public class Testofmem {
   }
 
   @Test
-  public void testOfmem() throws Exception {
-    driver.get(baseUrl);
-    assertEquals("Team Members:", driver.findElement(By.xpath("//div[@id='main']/center[4]/h1")).getText());
+  public void testShreeGender() throws Exception {
+    driver.get(baseUrl + "/");
+    driver.findElement(By.xpath("//center[4]/a/p")).click();
+    try {
+      assertEquals("Gender : Male", driver.findElement(By.xpath("//div[@id='content']/p[3]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    assertEquals("Gender : Male", driver.findElement(By.xpath("//div[@id='content']/p[3]")).getText());
   }
 
   @After

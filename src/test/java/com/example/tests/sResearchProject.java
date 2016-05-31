@@ -1,17 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-public class Nationality {
+public class sResearchProject {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,10 +24,17 @@ public class Nationality {
   }
 
   @Test
-  public void testNationality() throws Exception {
+  public void testSResearchProject() throws Exception {
     driver.get(baseUrl + "/index.html");
-    driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
-    assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
+    driver.findElement(By.xpath("//center[4]/a/p")).click();
+    assertEquals("Project Development : Project on \" Email Security \"", driver.findElement(By.xpath("//div[@id='content']/p[10]")).getText());
+    try {
+      assertEquals("Project Development : Project on \" Email Security \"", driver.findElement(By.xpath("//div[@id='content']/p[10]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    assertEquals("Project Development : Project on \" Email Security \"", driver.findElement(By.xpath("//div[@id='content']/p[10]")).getText());
+    driver.findElement(By.linkText("Home")).click();
   }
 
   @After
@@ -48,7 +54,7 @@ public class Nationality {
       return false;
     }
   }
-//
+
   private boolean isAlertPresent() {
     try {
       driver.switchTo().alert();

@@ -1,17 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-public class Member {
+public class sLinkedIn {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,12 +24,17 @@ public class Member {
   }
 
   @Test
-  public void testMemberViswesvar() throws Exception {
-    driver.get(baseUrl);
-    assertEquals("Viswesvar Sekar 2152249", driver.findElement(By.linkText("Viswesvar Sekar 2152249")).getText());
+  public void testSLinkedIn() throws Exception {
+    driver.get(baseUrl + "/");
+    driver.findElement(By.xpath("//center[4]/a/p")).click();
+    assertEquals("To know More about get into Social Profile", driver.findElement(By.linkText("To know More about get into Social Profile")).getText());
+    try {
+      assertEquals("To know More about get into Social Profile", driver.findElement(By.linkText("To know More about get into Social Profile")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.linkText("Home")).click();
   }
-
-
 
   @After
   public void tearDown() throws Exception {
