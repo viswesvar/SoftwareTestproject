@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class Testmylinkinpageviswa {
+public class Abouttest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,11 +25,10 @@ public class Testmylinkinpageviswa {
   }
 
   @Test
-  public void testMylinkinpageviswa() throws Exception {
-    driver.get(baseUrl + "/index.html");
-    driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
-    assertEquals("To know More about get into Social Profile", driver.findElement(By.linkText("To know More about get into Social Profile")).getText());
-    assertEquals("https://in.linkedin.com/in/viswesvar-sekar-735777a4", driver.findElement(By.linkText("To know More about get into Social Profile")).getAttribute("href"));
+  public void testAbout() throws Exception {
+    driver.get(baseUrl + "/");
+    driver.findElement(By.linkText("About")).click();
+    assertEquals("This page was created on 20th May 2016 for the purpose of Software quality", driver.findElement(By.cssSelector("p")).getText());
   }
 
   @After

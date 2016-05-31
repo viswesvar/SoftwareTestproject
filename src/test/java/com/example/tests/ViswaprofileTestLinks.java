@@ -8,10 +8,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-public class Testmylinkinpageviswa {
+public class ViswaprofileTestLinks {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,11 +24,12 @@ public class Testmylinkinpageviswa {
   }
 
   @Test
-  public void testMylinkinpageviswa() throws Exception {
-    driver.get(baseUrl + "/index.html");
+  public void testViswaprofileTestLinks() throws Exception {
+    driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
     assertEquals("To know More about get into Social Profile", driver.findElement(By.linkText("To know More about get into Social Profile")).getText());
-    assertEquals("https://in.linkedin.com/in/viswesvar-sekar-735777a4", driver.findElement(By.linkText("To know More about get into Social Profile")).getAttribute("href"));
+    assertTrue(isElementPresent(By.linkText("Home")));
+    assertEquals("Home", driver.findElement(By.linkText("Home")).getText());
   }
 
   @After
