@@ -1,17 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-public class Testwelcome {
+public class sResearchProject {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,9 +24,17 @@ public class Testwelcome {
   }
 
   @Test
-  public void testWelcome() throws Exception {
-    driver.get(baseUrl);
-    assertEquals("WELCOME TO OUR PROFESSIONAL WEBSITE", driver.findElement(By.cssSelector("h1")).getText());
+  public void testSResearchProject() throws Exception {
+    driver.get(baseUrl + "/index.html");
+    driver.findElement(By.xpath("//center[4]/a/p")).click();
+    assertEquals("Project Development : Project on \" Email Security \"", driver.findElement(By.xpath("//div[@id='content']/p[10]")).getText());
+    try {
+      assertEquals("Project Development : Project on \" Email Security \"", driver.findElement(By.xpath("//div[@id='content']/p[10]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    assertEquals("Project Development : Project on \" Email Security \"", driver.findElement(By.xpath("//div[@id='content']/p[10]")).getText());
+    driver.findElement(By.linkText("Home")).click();
   }
 
   @After
