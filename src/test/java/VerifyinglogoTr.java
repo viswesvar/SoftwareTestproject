@@ -3,16 +3,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.fail;
 
-/**
- * Created by Gurukiran Gowda on 5/28/2016.
- */
-public class kiran {
+public class VerifyinglogoTr {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -20,15 +18,22 @@ public class kiran {
 
     @Before
     public void setUp() throws Exception {
-        driver = new FirefoxDriver();
+        driver = new HtmlUnitDriver();
         baseUrl = "http://develop-viswesvarsekar.rhcloud.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testGr() throws Exception {
-        driver.get(baseUrl);
-        assertEquals("Training : Training in SAP \" Basis \" Module from Radiant Technologies , Bangalore", driver.findElement(By.xpath("//div[@id='content']/p[9]")).getText());
+    public void testVerifyingLogoAndTraining() throws Exception {
+        driver.get(baseUrl + "/index.html");
+        assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
+        driver.findElement(By.cssSelector("p")).click();
+        try {
+            assertEquals("Training : Training in SAP \" Basis \" Module from Radiant Technologies", driver.findElement(By.xpath("//div[@id='content']/p[9]")).getText());
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        assertEquals("Training : Training in SAP \" Basis \" Module from Radiant Technologies", driver.findElement(By.xpath("//div[@id='content']/p[9]")).getText());
     }
 
     @After
@@ -39,6 +44,8 @@ public class kiran {
             fail(verificationErrorString);
         }
     }
+
+
 
     private boolean isElementPresent(By by) {
         try {

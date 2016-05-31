@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class Nationality {
+public class Testcompleteabout {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,10 +25,15 @@ public class Nationality {
   }
 
   @Test
-  public void testNationality() throws Exception {
+  public void testCompleteabout() throws Exception {
     driver.get(baseUrl + "/index.html");
-    driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
-    assertEquals("Indian", driver.findElement(By.cssSelector("h2")).getText());
+    driver.findElement(By.linkText("About")).click();
+    assertEquals("This page was created on 20th May 2016 for the purpose of Software quality", driver.findElement(By.cssSelector("p")).getText());
+    try {
+      assertEquals("This page was created on 20th May 2016 for the purpose of Software quality", driver.findElement(By.cssSelector("p")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
   }
 
   @After
@@ -48,7 +53,7 @@ public class Nationality {
       return false;
     }
   }
-//
+
   private boolean isAlertPresent() {
     try {
       driver.switchTo().alert();

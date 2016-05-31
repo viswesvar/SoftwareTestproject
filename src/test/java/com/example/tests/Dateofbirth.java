@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class Member {
+public class Dateofbirth {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,12 +25,16 @@ public class Member {
   }
 
   @Test
-  public void testMemberViswesvar() throws Exception {
-    driver.get(baseUrl);
-    assertEquals("Viswesvar Sekar 2152249", driver.findElement(By.linkText("Viswesvar Sekar 2152249")).getText());
+  public void testDateofbirth() throws Exception {
+    driver.get(baseUrl + "/index.html");
+    driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
+    assertEquals("Date of Birth : 11th Sep 1993", driver.findElement(By.xpath("//div[@id='content']/p[4]")).getText());
+    try {
+      assertEquals("Date of Birth : 11th Sep 1993", driver.findElement(By.xpath("//div[@id='content']/p[4]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
   }
-
-
 
   @After
   public void tearDown() throws Exception {

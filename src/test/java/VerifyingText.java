@@ -2,7 +2,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -21,7 +20,7 @@ public class VerifyingText {
         baseUrl = "http://develop-viswesvarsekar.rhcloud.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-
+//this is to recheck the jenkines pipeline
     @Test
     public void testVerifytxt() throws Exception {
         driver.get(baseUrl);

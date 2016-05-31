@@ -8,10 +8,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-public class Testwelcome {
+public class Testlogopropage {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,9 +24,16 @@ public class Testwelcome {
   }
 
   @Test
-  public void testWelcome() throws Exception {
-    driver.get(baseUrl);
-    assertEquals("WELCOME TO OUR PROFESSIONAL WEBSITE", driver.findElement(By.cssSelector("h1")).getText());
+  public void testLogopropage() throws Exception {
+    driver.get(baseUrl + "/index.html");
+    driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
+    assertEquals("Viswesvar Sekar Profile", driver.findElement(By.id("logoLink")).getText());
+    try {
+      assertEquals("Viswesvar Sekar Profile", driver.findElement(By.id("logoLink")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    assertTrue(isElementPresent(By.id("logoLink")));
   }
 
   @After

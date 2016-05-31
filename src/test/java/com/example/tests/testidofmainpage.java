@@ -1,16 +1,17 @@
 package com.example.tests;
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class GuruNew1 {
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+public class testidofmainpage {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,19 +25,9 @@ public class GuruNew1 {
   }
 
   @Test
-  public void testGuruNew1() throws Exception {
+  public void testIdofmainpage() throws Exception {
     driver.get(baseUrl + "/index.html");
-    try {
-      assertEquals("Professonial Webpage", driver.getTitle());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
-    assertEquals("Guru Kiran Manjunath 2150172", driver.findElement(By.cssSelector("p")).getText());
-    try {
-      assertTrue(isElementPresent(By.cssSelector("p")));
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
+    assertEquals("About", driver.findElement(By.linkText("About")).getText());
   }
 
   @After

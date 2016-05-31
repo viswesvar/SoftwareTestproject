@@ -1,17 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-public class Testofmem {
+public class shreelogohead {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,9 +24,17 @@ public class Testofmem {
   }
 
   @Test
-  public void testOfmem() throws Exception {
-    driver.get(baseUrl);
+  public void testShreelogohead() throws Exception {
+    driver.get(baseUrl + "/");
     assertEquals("Team Members:", driver.findElement(By.xpath("//div[@id='main']/center[4]/h1")).getText());
+    driver.findElement(By.xpath("//center[4]/a/p")).click();
+    assertEquals("Srinivas K Singadi", driver.findElement(By.id("logoLink")).getText());
+    try {
+      assertEquals("Srinivas K Singadi", driver.findElement(By.id("logoLink")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.linkText("Home")).click();
   }
 
   @After
