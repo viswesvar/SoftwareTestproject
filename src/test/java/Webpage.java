@@ -7,13 +7,13 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.fail;
 
 /**
- * Created by Gurukiran Gowda on 5/28/2016.
+ * Created by Shree on 25-May-16.
  */
-public class guru {
+public class Webpage {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -27,10 +27,10 @@ public class guru {
     }
 
     @Test
-    public void testSdff() throws Exception {
+    public void testWebpage() throws Exception {
         driver.get(baseUrl);
         try {
-            assertEquals("New Team Members:", driver.findElement(By.xpath("//div[@id='main']/center[4]/h1")).getText());
+            assertEquals("Professonial_Webpage", driver.getTitle());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
@@ -78,4 +78,3 @@ public class guru {
         }
     }
 }
-
