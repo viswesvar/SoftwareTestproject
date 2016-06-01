@@ -19,18 +19,15 @@ public class gurukiran6 {
   @Before
   public void setUp() throws Exception {
     driver = new HtmlUnitDriver();
-    baseUrl = "https://in.linkedin.com/";
+    baseUrl = "http://develop-viswesvarsekar.rhcloud.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
   public void testGurukiran6() throws Exception {
-    driver.get(baseUrl + "/in/viswesvar-sekar-735777a4");
-    assertEquals("Viswesvar Sekar | LinkedIn", driver.getTitle());
-    assertEquals("Information Technology and Services", driver.findElement(By.xpath("//dl[@id='demographics']/dd[2]")).getText());
-    assertTrue(isElementPresent(By.cssSelector("p.headline.title")));
-    assertEquals("Master’s Degree, Computer Engineering", driver.findElement(By.cssSelector("h5.item-subtitle > span.translation")).getText());
-    assertTrue(isElementPresent(By.xpath("//section[@id='education']/ul/li[3]/header/h4/span")));
+    driver.get(baseUrl + "/ViswaProfile.html");
+    assertTrue(isElementPresent(By.xpath("//div[@id='content']/p[2]")));
+    assertEquals("Viswesvar Sekar", driver.getTitle());
   }
 
   @After
