@@ -1,17 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-public class Testinlinkedinpage {
+public class mainpageButtons {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,12 +24,16 @@ public class Testinlinkedinpage {
   }
 
   @Test
-  public void testInlinkedinpage() throws Exception {
+  public void testMainpageButtons() throws Exception {
     driver.get(baseUrl + "/index.html");
-    driver.findElement(By.linkText("Viswesvar Sekar 2152249")).click();
-    driver.findElement(By.linkText("To know More about get into Social Profile")).click();
-    assertEquals("Viswesvar Sekar | LinkedIn", driver.getTitle());
-    assertEquals("Viswesvar Sekar", driver.findElement(By.id("name")).getText());
+    assertEquals("Srinivas K Singadi2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
+    try {
+      assertEquals("Srinivas K Singadi2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    assertTrue(isElementPresent(By.linkText("Contact")));
+    assertTrue(isElementPresent(By.linkText("About")));
   }
 
   @After
