@@ -1,0 +1,47 @@
+body{
+    font-family: arial; font-size: 75%; line-height: 1.2em; width: 100%; margin: 0; background: #FFFAF0;background-image: url("london.jpg");background-repeat:no-repeat;background-size:cover;
+}
+/* you can put your code all in one line like above */
+#page{ margin: 20px; }
+
+/* or on different lines like below */
+#logo{
+	width: 25%;
+	margin-top: 5px;
+	font-family: georgia;
+	display: inline-block;
+}
+/* but try and be as concise as possible */
+#nav{
+	width: 60%;
+	display: inline-block;
+	text-align: right;
+	float: right;
+}
+	#nav ul{}
+		#nav ul li{
+			display: inline-block;
+			height: 62px;
+		}
+			#nav ul li a{
+				padding: 20px;
+				background:blue;
+				color: white;
+			}
+			#nav ul li a:hover{
+				background-color: #ffb424;
+				box-shadow: 0px 1px 1px #666;
+			}
+			#nav ul li a:active{ background-color: #ff8f00; }
+	
+	
+
+	
+
+#main{
+	padding: 5px;
+	padding-bottom: auto;
+	
+	margin: 25px auto ;
+	
+}
