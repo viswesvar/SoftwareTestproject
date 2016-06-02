@@ -44,7 +44,7 @@ public class mainpageButtons {
       fail(verificationErrorString);
     }
   }
-
+//
   private boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
