@@ -1,14 +1,14 @@
 package com.example.tests;
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.support.ui.Select;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.*;
 
 public class mainpageButtons {
   private WebDriver driver;
@@ -26,9 +26,9 @@ public class mainpageButtons {
   @Test
   public void testMainpageButtons() throws Exception {
     driver.get(baseUrl + "/index.html");
-    assertEquals("Srinivas K Singadi2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
+    assertEquals("Srinivas K Singadi 2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
     try {
-      assertEquals("Srinivas K Singadi2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
+      assertEquals("Srinivas K Singadi 2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
@@ -44,7 +44,7 @@ public class mainpageButtons {
       fail(verificationErrorString);
     }
   }
-
+//
   private boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
