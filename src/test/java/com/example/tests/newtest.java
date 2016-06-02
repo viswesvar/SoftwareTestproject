@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class gurukiran10 {
+public class newtest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -26,10 +26,9 @@ public class gurukiran10 {
   }
 
   @Test
-  public void testGurukiran10() throws Exception {
-    driver.get(baseUrl + "/GuruProfile.html");
-    assertEquals("To know More about get into Social Profile", driver.findElement(By.linkText("To know More about get into Social Profile")).getText());
-    assertTrue(isElementPresent(By.id("content")));
+  public void testNew() throws Exception {
+    driver.get(baseUrl + "/index.html");
+    assertTrue(isElementPresent(By.cssSelector("p")));
   }
 
   @After
