@@ -1,16 +1,16 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-
+import org.junit.*;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class Gurunew1 {
+public class mainpaglogo {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,11 +24,21 @@ public class Gurunew1 {
   }
 
   @Test
-  public void testGurunew1() throws Exception {
-    driver.get(baseUrl + "/index.html");
-    assertEquals("Guru Kiran Manjunath 2150126", driver.findElement(By.cssSelector("p")).getText());
-    assertEquals("Viswesvar Sekar 2152249", driver.findElement(By.linkText("Viswesvar Sekar 2152249")).getText());
-    assertTrue(isElementPresent(By.xpath("//center[4]/a/p")));
+  public void testMainpaglogo() throws Exception {
+    driver.get(baseUrl + "/");
+    assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
+    try {
+      assertEquals("", driver.findElement(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.linkText("Contact")).click();
+    assertEquals("Srinivas +91 9164661885 mail.id : shreeniva93@gmail.com", driver.findElement(By.xpath("//div[@id='contact']/p[4]")).getText());
+    try {
+      assertEquals("Srinivas +91 9164661885 mail.id : shreeniva93@gmail.com", driver.findElement(By.xpath("//div[@id='contact']/p[4]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
   }
 
   @After
