@@ -1,16 +1,18 @@
 package com.example.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
 
+import static javafx.scene.input.KeyCode.F;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class gurukiran10 {
+public class Gurunew1 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,10 +26,11 @@ public class gurukiran10 {
   }
 
   @Test
-  public void testGurukiran10() throws Exception {
-    driver.get(baseUrl + "/GuruProfile.html");
-    assertEquals("To know More about get into Social Profile", driver.findElement(By.linkText("To know More about get into Social Profile")).getText());
-    assertTrue(isElementPresent(By.id("content")));
+  public void testGurunew1() throws Exception {
+    driver.get(baseUrl + "/index.html");
+    assertEquals("Guru Kiran Manjunath 2150126", driver.findElement(By.cssSelector("p")).getText());
+    assertEquals("Viswesvar Sekar 2152249", driver.findElement(By.linkText("Viswesvar Sekar 2152249")).getText());
+    assertTrue(isElementPresent(By.xpath("//center[4]/a/p")));
   }
 
   @After

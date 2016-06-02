@@ -8,10 +8,10 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.junit.Assert.fail;
 
-public class testnewlogo {
+public class newtest11 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,9 +25,10 @@ public class testnewlogo {
   }
 
   @Test
-  public void testNewlogo() throws Exception {
-    driver.get(baseUrl);
-    assertTrue(isElementPresent(By.cssSelector("img[alt=\"Viswesvar Sekar\"]")));
+  public void testNewtest11() throws Exception {
+    driver.get(baseUrl + "/index.html");
+    assertEquals("WELCOME TO OUR PROFESSIONAL WEBSITE", driver.findElement(By.cssSelector("h1")).getText());
+    assertTrue(isElementPresent(By.xpath("//div[@id='main']/center[2]/h1")));
   }
 
   @After
