@@ -28,7 +28,7 @@ public class mainpageButtons {
     driver.get(baseUrl + "/index.html");
     assertEquals("Srinivas K Singadi 2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
     try {
-      assertEquals("Srinivas K Singadi2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
+      assertEquals("Srinivas K Singadi 2150038", driver.findElement(By.xpath("//center[4]/a/p")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
