@@ -8,9 +8,10 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-public class Gurunew1 {
+public class testcase5 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -24,11 +25,18 @@ public class Gurunew1 {
   }
 
   @Test
-  public void testGurunew1() throws Exception {
-    driver.get(baseUrl + "/index.html");
-    assertEquals("Guru Kiran Manjunath 2150126", driver.findElement(By.cssSelector("p")).getText());
-    assertEquals("Viswesvar Sekar 2152249", driver.findElement(By.linkText("Viswesvar Sekar 2152249")).getText());
-    assertTrue(isElementPresent(By.xpath("//center[4]/a/p")));
+  public void testCase5() throws Exception {
+    driver.get(baseUrl + "/Contact.html");
+    try {
+      assertEquals("About", driver.getTitle());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Gurukiran +91 9916412017 mail.id : gkiran37@gmail.com", driver.findElement(By.xpath("//div[@id='contact']/p[3]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
   }
 
   @After
